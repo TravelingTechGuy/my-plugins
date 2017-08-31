@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>jQuery plugins test</title>
+  <style>
+    .result {
+      border: 1px solid blue;
+      width: 100px;
+      height: 18px;
+      display: inline-block;
+      font-size: 16px;
+    }
+    .text {
+      width: 300px;
+      height: 300px;
+      border: 1px solid black;
+      overflow: scroll;
+      scroll-behavior: auto;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <legend>Double click test</legend>
+    <button id="btn1">Click/double click me!</button>
+    <span id="result1" class="result"></span>
+  </p>
+
+  <p>
+    <legend>Long press test</legend>
+    <button id="btn2">Short/long press me!</button>
+    <span id="result2" class="result"></span>
+  </p>
+
+  <p>
+    <legend>Scroll end event</legend>
+    <div class="text">
+        Lorem Ipsum is FAKE TEXT!
+
+        I think the only card she has is the Lorem card. Look at that text! Would anyone use that? Can you imagine that, the text of your next webpage?!
+
+        You know, it really doesn’t matter what you write as long as you’ve got a young, and beautiful, piece of text. Look at these words. Are they small words? And he referred to my words - if they're small, something else must be small. I guarantee you there's no problem, I guarantee. When other websites give you text, they’re not sending the best. They’re not sending you, they’re sending words that have lots of problems and they’re bringing those problems with us. They’re bringing mistakes. They’re bringing misspellings. They’re typists… And some, I assume, are good words. Lorem Ipsum best not make any more threats to your website. It will be met with fire and fury like the world has never seen. Lorem Ipsum is the single greatest threat. We are not - we are not keeping up with other websites.
+
+        The best taco bowls are made in Trump Tower Grill. I love Hispanics! Lorem Ipsum best not make any more threats to your website. It will be met with fire and fury like the world has never seen. You're telling the enemy exactly what you're going to do. No wonder you've been fighting Lorem Ipsum your entire adult life. When other websites give you text, they’re not sending the best. They’re not sending you, they’re sending words that have lots of problems and they’re bringing those problems with us. They’re bringing mistakes. They’re bringing misspellings. They’re typists… And some, I assume, are good words. Trump Ipsum is calling for a total and complete shutdown of Muslim text entering your website.
+    </div>
+    <div id="result3" class="result"></div>
+  </p>
+
+  <!--scripts -->
+  <script src="jquery-3.2.1.min.js"></script>
+  <script src="jquery.doubleclick.js"></script>
+  <script src="jquery.longpress.js"></script>
+  <script src="jquery.scrollstopped.js"></script>
+  <script>
+    $(function() {
+      //demo click/double click
+      let single = () => $('#result1').text('single click');
+      let double = () => $('#result1').text('double click');
+      $('#btn1').doubleClick(single, double);
+
+      //demo short/long press
+      let short = () => $('#result2').text('short press');
+      let long = () => $('#result2').text('long press');
+      $('#btn2').longPress(short, long, 1000);
+
+      //demo scroll stopped
+      $('.text')
+        .on('scroll', function(e) {
+          $('#result3').text('');
+        })
+        .scrollStopped(function(e) {
+          $('#result3').text('scroll stopped');
+        });
+    }());
+  </script>
+</body>
+</html>
