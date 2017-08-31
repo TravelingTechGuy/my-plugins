@@ -1,9 +1,13 @@
 /**
- * jquery-doubleclick
- * Support click/double-click event on the same element
+ *  jquery-doubleclick - v1.0.0
+ *  Support click/double-click event on the same element
  *
- * By Guy Vider 2017
- * Under MIT License
+ *  By Guy Vider 2017
+ *  Under MIT License
+ *
+ * @param {function}  singleClickCallback - handle single click event
+ * @param {function}  doubleClickCallback - handle double click event
+ * @param {integer} duration - duration in ms, until short click handler is called
  *
  */
 

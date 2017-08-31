@@ -1,9 +1,14 @@
-/*
+/**
  *  jquery-longpress - v1.0.0
  *  Support short and long press on an HTML element
  *
  *  Made by Guy Vider
  *  Under MIT License
+ *
+ * @param {function}  shortCallback - handle short press event
+ * @param {function}  longCallback - handle long press event
+ * @param {integer} duration - duration in ms, until long press handler is called
+ *
  */
 ;(function($) {
   "use strict";
